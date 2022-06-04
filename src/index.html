@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Varázslatos katakomba</title>
+</head>
+
+<body>
+    <div id="menu">
+        <h1>Varázslatos katakomba</h1>
+        <table>
+            <tr>
+                <td>Játékosok száma</td>
+                <td>
+                    <button id="decPlayers">-</button>
+                    <input readonly id="players" value="2">
+                    <button id="incPlayers">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Kincsek száma<br>játékosonként</td>
+                <td>
+                    <button id="decTreasures">-</button>
+                    <input readonly id="treasures" value="2" min="1" max="12">
+                    <button id="incTreasures">+</button>
+                </td>
+            </tr>
+        </table>
+        <button id="start">Játék indítása</button><br>
+        <button id="gameDescBtn">Játék leírása</button>
+    </div>
+    <div id="gameContent" hidden>
+        <div id="container">
+            <div class="hArrow">
+                <div></div>
+                <div></div>
+                <div>
+                    <div class="downArrow"></div>
+                </div>
+                <div></div>
+                <div>
+                    <div class="downArrow"></div>
+                </div>
+                <div></div>
+                <div>
+                    <div class="downArrow"></div>
+                </div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="vArrow">
+                <div></div>
+                <div>
+                    <div class="rightArrow"></div>
+                </div>
+                <div></div>
+                <div>
+                    <div class="rightArrow"></div>
+                </div>
+                <div></div>
+                <div>
+                    <div class="rightArrow"></div>
+                </div>
+                <div></div>
+            </div>
+            <div id="gameTable"></div>
+            <div class="vArrow">
+                <div></div>
+                <div>
+                    <div class="leftArrow"></div>
+                </div>
+                <div></div>
+                <div>
+                    <div class="leftArrow"></div>
+                </div>
+                <div></div>
+                <div>
+                    <div class="leftArrow"></div>
+                </div>
+                <div></div>
+            </div>
+            <div class="hArrow">
+                <div></div>
+                <div></div>
+                <div>
+                    <div class="upArrow"></div>
+                </div>
+                <div></div>
+                <div>
+                    <div class="upArrow"></div>
+                </div>
+                <div></div>
+                <div>
+                    <div class="upArrow"></div>
+                </div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div id="gameDatas">
+            <table id="playerDatas"></table>
+            <div style="display: table;margin: 5px auto;">
+                <p style="display: table-cell;vertical-align: middle;font-size: 30px;padding-right: 10px;">Kimaradt szoba:</p>
+                <div id="extra"></div>
+            </div>
+        </div>
+        <div id="winnerDiv" hidden>
+            <p>Játékos 1 nyert.</p>
+            <button class="mainScreenBtn">Vissza a kezdőképernyőre</button>
+        </div>
+    </div>
+    <div id="gameDescription" hidden>
+        <h1>A játék leírása</h1>
+        <p>
+            A <strong>katakomba</strong> szobáit egy 7x7-es négyzetrács cellái jelképezik. Minden szoba esetén adott,
+            hogy mely falain van ajtó. Ha két szomszédos szoba érintkező falán egy-egy ajtó van,
+            akkor át lehet menni egyik szobából a másikba. A négyzetrács páros sorait és oszlopait el lehet tolni,
+            a többi szoba végig rögzített a játék során. Az eltolásokkal az ajtókon keresztül utak nyílnak a szobák között,
+            így lehet eljutni a kincsekhez. Mindegyik kérő arra törekszik,
+            hogy a katakomba szobáinak ötletes eltolásával eljusson a kincsekhez.
+            Aki elsőként találja meg mindahányat és kiindulópontjára sikeresen visszaérkezik az a nyertes.
+        </p>
+        <p>
+            A <strong>játék elején</strong> a szobákat véletlen sorrendben és véletlen irányban kirakjuk a játéktábla szabad mezőire.
+            A szobák közül az egyik mindenképpen fölösleges marad. A játék folyamán majd mindig az éppen kimaradó szobát
+            használjuk a többi szoba elcsúsztatására. A játékban legfeljebb 24 kincset kell megtalálni.
+            Ezeket véletlen sorrendben felrakjuk a táblára úgy, hogy egy mezőn csak egy kincs lehet, és a sarokba nem rakhatunk,
+            majd az ezeket jelző kártyákat összekeverjük, és egyenlő számban szétosztjuk a játékosok között,
+            felfedve mindig a legfelső kártyát. A játékosokat jelző figurákat a tábla külön sarkaiba helyezzük.
+        </p>
+        <p>
+            A <strong>játék során</strong> minden játékosnak a kincsei közül azt kell megszereznie, amit az aktuálisan legfelső,
+            mindenki által látható kincskártya mutat. Arra a mezőre kell eljutni. Ahhoz, hogy a célt elérje, a játékosnak
+        </p>
+        <ol>
+            <li>először a katakombát kell átalakítania a kimaradt szoba becsúsztatásával, és</li>
+            <li>lépnie mindig csak ez után szabad a figurájával.</li>
+        </ol>
+        <p>
+            A <strong>katakomba átalakítása</strong> a következőképpen történik:
+            A játékos a kimaradt szobát (tetszőlegesen elforgatva) valamelyik oldalról becsúsztathatja
+            a játéktábla területére egy szabadon mozgó sor vagy oszlop szélén, aminek következtében az
+            átellenes oldalon kiesik egy másik szoba. A tábla szélén nyilak jelzik azokat a helyeket,
+            ahol a szobát be lehet csúsztatni. A szoba bárhol betolható, kivétel ott, ahol az imént kilökődött.
+            Nem szabad tehát az előző játékos lépését rögtön „visszacsinálni".
+            Ha a szobák eltolása során a szobával együtt egy figura is kitolódnék – akár másé, akár a miénk -,
+            akkor ezt a figurát az ellenkező oldalról imént becsúsztatott szobába kell helyezni.
+        </p>
+        <p>
+            A szobák eltolását követi a <strong>játékos lépése</strong> a figurával. A katakomba minden olyan pontjáig el lehet jutni,
+            amelyet a kiindulóponttal folyamatos járatvonal köt össze. Az ilyen járatokban tehát olyan messzire mehetünk el,
+            amilyen messzire csak akarunk, vagyis nem számít, hogy hány szobán lépkedünk végig. Nem kötelező lépni.
+            Figuránkat akár ott is hagyhatjuk, ahol éppen van. Egy mezőn több figura is állhat: a figurák nem ütik ki egymást.
+            Ha valaki nem tud rögtön céljáig eljutni, akkor figurájával addig a pontig célszerű elmennie,
+            ahol feltehetőleg jó helyzetben várhatja következő lépést. Ha valaki elérte a felfedett kincskártya által megjelölt célt,
+            akkor felfedi a következőt, és most ehhez a célhoz igyekszik eljutni, stb.
+        </p>
+        <p>
+            A <strong>játék akkor ér véget</strong>, ha egy játékos az összes kincskártyájához tartozó kincset megszerezte,
+            és visszavezette a figuráját arra mezőre, ahonnan elindult.
+            Az a győztes, aki valamennyi kincsét megtalálta és figuráját elsőként juttatta vissza a kiindulópontra.
+        </p>
+        <button class="mainScreenBtn">Vissza a kezdőképernyőre</button>
+    </div>
+
+    <script src="scripts/Player.js"></script>
+    <script src="scripts/Field.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>

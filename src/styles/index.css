@@ -1,0 +1,497 @@
+body {
+    background-color: #006B38FF;
+    margin: 0;
+}
+#menu {
+    width: 600px;
+    height: 350px;
+    text-align: center;
+    background-color: #101820FF;
+    color: white;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 3px solid black;
+    margin-top: 150px;
+}
+#menu table {
+    margin: 0 auto;
+}
+#menu table td:first-child {
+    text-align: right;
+    padding-right: 20px;
+}
+#menu h1 {
+    font-size: 40px;
+    margin-top: 10px;
+}
+#menu button {
+    width: 180px;
+    height: 40px;
+    font-size: 25px;
+    border-radius: 10px;
+    background-color: #E95C20FF;
+    border: 3px solid white;
+    color: rgb(20, 20, 50);
+}
+#menu td button {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    font-size: 21px;
+}
+#menu input {
+    width: 30px;
+    height: 25px;
+    font-size: 20px;
+    text-align: center;
+}
+#menu td {
+    font-size: 30px;
+    width: fit-content;
+}
+#start {
+    margin-top: 30px;
+}
+.mainScreenBtn {
+    height: 40px;
+    border-radius: 10px;
+    font-size: 25px;
+    background-color: #E95C20FF;
+    border: 2px solid white;
+}
+
+#gameContent {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(85, 83, 83);
+}
+#container {
+    margin: 30px;
+    font-size: 0;
+    height: 100%;
+    display: inline-block;
+}
+#gameDatas {
+    display: inline-block;
+    position: absolute;
+    background-color: rgb(223, 151, 19);
+    border: 3px solid black;
+    top: 30px;
+}
+#gameDescBtn {
+    margin-top: 5px;
+}
+.vArrow {
+    background-color: rgb(0, 0, 82);
+    width: 40px;
+    display: inline-block;
+}
+.hArrow {
+    background-color: rgb(0, 0, 82);
+    height: 40px;
+    display: block;
+}
+.vArrow > div{
+    position: relative;
+    height: 62px;
+    width: 100%;
+}
+.hArrow > div {
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    width: 62px;
+    height: 100%;
+    overflow: visible;
+}
+.hArrow > div:last-child, .hArrow > div:first-child{
+    width: 40px;
+}
+#gameTable {
+    display: inline-block;
+    background-color: transparent;
+}
+.row {
+    transition: transform 1.5s;
+}
+.player {
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    left: 35%;
+    top: 35%;
+    border-radius: 100px;
+    transition: transform 1s;
+    z-index: 2;
+}
+.extraField {
+    z-index: 1;
+}
+#gameDescription {
+    width: 800px;
+    margin: 0 auto;
+    background-color: #101820FF;
+    color: white;
+    font-size: 1.2em;
+    padding: 15px;
+}
+#winnerDiv {
+    text-align: center;
+}
+#winnerDiv p {
+    font-size: 40px;
+    margin: 0;
+    margin-bottom: 10px;
+    color: white;
+}
+.field {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    background-color: black;
+    border: 1px solid burlywood;
+    position: relative;
+    padding: 0;
+    transition: transform 1.5s;
+}
+#playerDatas {
+    border-collapse: collapse;
+    margin: -3px;
+}
+#playerDatas td:first-child > div {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+#playerDatas td, #playerDatas th {
+    border: 3px solid black;
+    text-align: center;
+    padding: 5px;
+}
+#playerDatas th {
+    font-size: 20px;
+}
+#playerDatas td {
+    font-size: 26px;
+}
+#extra > div.field {
+    vertical-align: middle;
+}
+/* arrows */
+.upArrow {
+    position: relative;
+    top: 5px;
+    height: 25px;
+    width: 30px;
+    margin: 0 auto;
+}
+.upArrow:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid transparent;
+    border-bottom: 5px solid rgb(0, 0, 82);
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+.upArrow:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+
+    border-bottom: 20px solid white;
+    position: absolute;
+    bottom: 0;
+}
+.downArrow {
+    position: relative;
+    top: 5px;
+    margin: 0 auto;
+    height: 30px;
+    width: 25px;
+}
+.downArrow:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 5px solid rgb(0, 0, 82);
+
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+.downArrow:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+
+    border-top: 20px solid white;
+    position: absolute;
+    top: 0;
+}
+.rightArrow {
+    position: relative;
+    top: 16px;
+    margin: 0 auto;
+    height: 30px;
+    width: 25px;
+}
+.rightArrow:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid rgb(0, 0, 82);
+
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+}
+.rightArrow:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 20px solid white;
+
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    position: absolute;
+    left: 0;
+}
+.leftArrow {
+    position: relative;
+    top: 16px;
+    width: 25px;
+    height: 30px;
+    margin: 0 auto;
+}
+.leftArrow:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 5px solid rgb(0, 0, 82);
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+.leftArrow:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 20px solid white;
+
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    position: absolute;
+    right: 0;
+}
+/* field types */
+.turn {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.5s;
+}
+.turn::before {
+    content: '';
+    width: 33%;
+    height: 66%;
+    left: 33.3%;
+    top: 33.3%;
+    background-color: yellow;
+    position: absolute;
+    border-top-left-radius: 10px;
+}
+.turn:after {
+    content: '';
+    width: 66.6%;
+    height: 33.3%;
+    left: 33.3%;
+    top: 33.3%;
+    background-color: yellow;
+    position: absolute;
+    border-top-left-radius: 10px;
+}
+.junction {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.5s;
+}
+.junction:before {
+    content: '';
+    position: absolute;
+    width: 33.3%;
+    height: 66.6%;
+    left: 33.3%;
+    top: 33.3%;
+    background-color: yellow;
+}
+.junction:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 33.3%;
+    left: 0;
+    top: 33.3%;
+    background-color: yellow;
+}
+.path {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.5s;
+}
+.path:before {
+    content: '';
+    position: absolute;
+    width: 33.3%;
+    height: 100%;
+    left: 33.3%;
+    top: 0;
+    background-color: yellow;
+}
+/* treasures */
+.treasure_red {
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    background-color: transparent;
+}
+.treasure_red:before {
+    content: '';
+    background-color: red;
+    position: absolute;
+    width: 10%;
+    height: 140%;
+    left: 45%;
+    top: -20%;
+    transform: rotate(45deg);
+}
+.treasure_red:after {
+    content: '';
+    background-color: red;
+    position: absolute;
+    width: 10%;
+    height: 140%;
+    left: 45%;
+    top: -20%;
+    transform: rotate(-45deg);
+}
+.treasure_blue {
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    background-color: transparent;
+}
+.treasure_blue:before {
+    content: '';
+    background-color: blue;
+    position: absolute;
+    width: 10%;
+    height: 140%;
+    left: 45%;
+    top: -20%;
+    transform: rotate(45deg);
+}
+.treasure_blue:after {
+    content: '';
+    background-color: blue;
+    position: absolute;
+    width: 10%;
+    height: 140%;
+    left: 45%;
+    top: -20%;
+    transform: rotate(-45deg);
+}
+.treasure_purple {
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    background-color: transparent;
+}
+.treasure_purple:before {
+    content: '';
+    background-color: purple;
+    position: absolute;
+    width: 10%;
+    height: 140%;
+    left: 45%;
+    top: -20%;
+    transform: rotate(45deg);
+}
+.treasure_purple:after {
+    content: '';
+    background-color: purple;
+    position: absolute;
+    width: 10%;
+    height: 140%;
+    left: 45%;
+    top: -20%;
+    transform: rotate(-45deg);
+}
+.treasure_green {
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    background-color: transparent;
+}
+.treasure_green:before {
+    content: '';
+    background-color: green;
+    position: absolute;
+    width: 10%;
+    height: 140%;
+    left: 45%;
+    top: -20%;
+    transform: rotate(45deg);
+}
+.treasure_green:after {
+    content: '';
+    background-color: green;
+    position: absolute;
+    width: 10%;
+    height: 140%;
+    left: 45%;
+    top: -20%;
+    transform: rotate(-45deg);
+}
+@media screen and (min-width: 1300px) and (min-height: 650px) {
+    .field {
+        width: 70px;
+        height: 70px;
+    }
+    #playerDatas td:first-child > div {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+    }
+    #playerDatas th {
+        font-size: 30px;
+    }
+    #playerDatas td {
+        font-size: 40px;
+    }
+    
+}
